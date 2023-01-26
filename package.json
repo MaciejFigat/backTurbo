@@ -1,0 +1,64 @@
+{
+  "name": "pthome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "npm run build --prefix backend",
+    "buildRender": "npm run buildRender --prefix backend",
+    "start": "npm run build && node backend/build/src/server.js",
+    "startRender": "npm run buildRender && node backend/build/src/server.js",
+    "client": "npm start --prefix frontend",
+    "server": "nodemon --exec ts-node backend/src/server",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaciejFigat/PTHome.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaciejFigat/PTHome/issues"
+  },
+  "homepage": "https://github.com/MaciejFigat/PTHome#readme",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^6.2.2",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "emailjs-com": "^3.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "html-to-text": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "juice": "^8.0.0",
+    "mongoose": "^6.0.7",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.2",
+    "sequelize": "^6.15.1",
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/colors": "^1.2.1",
+    "@types/dotenv": "^8.2.0",
+    "@types/ejs": "^3.1.0",
+    "@types/express": "^4.17.13",
+    "@types/html-to-text": "^8.1.0",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/mongoose": "^5.11.97",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.7.4",
+    "@types/nodemailer": "^6.4.4",
+    "colors": "^1.4.0",
+    "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.3.0",
+    "ts-node-dev": "^1.1.8"
+  }
+}

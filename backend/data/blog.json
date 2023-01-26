@@ -1,0 +1,8 @@
+// use this to manually add data to MongoDB compass, since seeder scripts don't work
+{
+  "topline": "Lorem ipsum dolor sit.2",
+  "headline": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, mollitia?",
+  "subtitle": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat perspiciatis non deleniti doloremque, iure laudantium quaerat esse odit. Similique nihil voluptate voluptatem sed tempora sunt libero, saepe corrupti laboriosam suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat perspiciatis non deleniti doloremque, iure laudantium quaerat esse odit. Similique nihil voluptate voluptatem sed tempora sunt libero, saepe corrupti laboriosam suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat perspiciatis non deleniti doloremque, iure laudantium quaerat esse odit. Similique nihil voluptate voluptatem sed tempora sunt libero, saepe corrupti laboriosam suscipit.',",
+  "imgLink": "https://source.unsplash.com/kVi5zMOUTFc",
+  "author": "Bob Nowak"
+}

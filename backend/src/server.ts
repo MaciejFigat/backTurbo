@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import path from 'path'
 import userRoutes from '../routes/userRoutes'
 import fragmentRoutes from '../routes/fragmentRoutes'
+import lexapiRoutes from '../routes/lexapiRoutes'
 import connectDB from '../config/db'
 import { notFound, errorHandler } from '../middleware/errorMiddleware'
 
@@ -35,93 +36,95 @@ app.options("*", function (req, res) {
 
 app.use('/api/users', userRoutes)
 app.use('/api/fragments', fragmentRoutes)
-// app.use('/lexapi', lexapiRoutes)
+app.use('/lexapi', lexapiRoutes)
 
 
 //todo lex API search query
-//! TESTING routes and controller
-app.get(`/lexapi/search/`, async (req: any, res: any) => {
+//! searchRequest
+// app.get(`/lexapi/search/`, async (req: any, res: any) => {
 
-    const searchquery = req.query.searchquery
+//     const searchquery = req.query.searchquery
 
-    axios.get(`https://null.turbo-lex.pl/search/?query=${searchquery}`)
-        .then(response => {
+//     axios.get(`https://null.turbo-lex.pl/search/?query=${searchquery}`)
+//         .then(response => {
 
-            res.json(JSON.parse(JSON.stringify(response.data)))
-        })
-        .catch(error => {
-            console.log(error);
-        });
+//             res.json(JSON.parse(JSON.stringify(response.data)))
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
 
-})
+// })
 
-app.get(`/lexapi/doc/`, async (req: any, res: any) => {
+// !docRequest
+// app.get(`/lexapi/doc/`, async (req: any, res: any) => {
 
-    const { query, selectedDoc, docNumber } = req.query
+//     const { query, selectedDoc, docNumber } = req.query
 
-    axios.get(`https://null.turbo-lex.pl/doc/${docNumber}?query_doc=${query}&selected_doc=${selectedDoc}`)
+//     axios.get(`https://null.turbo-lex.pl/doc/${docNumber}?query_doc=${query}&selected_doc=${selectedDoc}`)
 
-        .then(response => {
+//         .then(response => {
 
-            res.json(JSON.parse(JSON.stringify(response.data)))
-        })
-        .catch(error => {
-            console.log(error);
-        });
+//             res.json(JSON.parse(JSON.stringify(response.data)))
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
 
 
-})
+// })
+// !docLinksRequest
 //? /lexapi/doc/id/query Doc id and query - used in recent links
-app.get(`/lexapi/doc/id/query`, async (req: any, res: any) => {
+// app.get(`/lexapi/doc/id/query`, async (req: any, res: any) => {
 
-    const { query, docNumber } = req.query
+//     const { query, docNumber } = req.query
 
-    axios.get(`https://null.turbo-lex.pl/doc/${docNumber}?query_doc=${query}`)
+//     axios.get(`https://null.turbo-lex.pl/doc/${docNumber}?query_doc=${query}`)
 
-        .then(response => {
+//         .then(response => {
 
-            res.json(JSON.parse(JSON.stringify(response.data)))
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-
-})
+//             res.json(JSON.parse(JSON.stringify(response.data)))
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
 
 
+// })
 
 
 
-app.get(`/lexapi/searchSkip/`, async (req: any, res: any) => {
 
-    const { query, skip, take, start_date, end_date } = req.query
-    axios.get(`https://null.turbo-lex.pl/searchSkip/?query=${query}&skip=${skip}&take=${take}&start_date=${start_date}&end_date=${end_date}`)
+// !searchSkipRequest
+// app.get(`/lexapi/searchSkip/`, async (req: any, res: any) => {
 
-        .then(response => {
-            res.json(JSON.parse(JSON.stringify(response.data)))
-        })
-        .catch(error => {
-            console.log(error);
-        });
+//     const { query, skip, take, start_date, end_date } = req.query
+//     axios.get(`https://null.turbo-lex.pl/searchSkip/?query=${query}&skip=${skip}&take=${take}&start_date=${start_date}&end_date=${end_date}`)
+
+//         .then(response => {
+//             res.json(JSON.parse(JSON.stringify(response.data)))
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
 
 
-})
-
+// })
+// !docNrRequest
 // todo https://null.turbo-lex.pl/doc/26042463
-app.get(`/lexapi/doc/nr`, async (req: any, res: any) => {
+// app.get(`/lexapi/doc/nr`, async (req: any, res: any) => {
 
-    axios.get(`https://null.turbo-lex.pl/doc/${req.query.nr}`)
+//     axios.get(`https://null.turbo-lex.pl/doc/${req.query.nr}`)
 
-        .then(response => {
-            res.json(JSON.parse(JSON.stringify(response.data)))
-        })
-        .catch(error => {
-            console.log(error);
-        });
+//         .then(response => {
+//             res.json(JSON.parse(JSON.stringify(response.data)))
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
 
 
-})
+// })
 
 
 if (process.env.NODE_ENV === 'production') {
